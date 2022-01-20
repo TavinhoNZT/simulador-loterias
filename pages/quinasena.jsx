@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
-import { mega } from "../../functions/mega"
-import NumeroDisplay from "../../components/NumeroDisplay"
+import { quina } from "./functions/quina"
+import NumeroDisplay from "../components/NumeroDisplay"
 
-export default function megasena() {
-    const [qtde, setQtde] = useState(6)
+export default function quinasena() {
+    const [qtde, setQtde] = useState(5)
     const [numeros, setNumeros] = useState([])
 
     useEffect(() => {
-        setNumeros(mega())
+        setNumeros(quina())
     }, [])
 
     function renderNumeros() {
@@ -23,7 +23,7 @@ export default function megasena() {
             
             }}>
 
-            <h1>Simulador Mega Sena</h1>
+            <h1>Simulador Quina</h1>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
@@ -32,12 +32,12 @@ export default function megasena() {
                 {renderNumeros()}
             </div>
             <div>
-                <input type="number" min={6} max={15} value={qtde}
+                <input type="number" min={5} max={15} value={qtde}
                     onChange={ev => setQtde(ev.target.value)} />
-                <button onClick={() => setNumeros(mega(qtde))}>
+                <button onClick={() => setNumeros(quina(qtde))}>
                     Gerar Aposta
                     </button>
             </div>
         </div>
     )
-}
+} 
